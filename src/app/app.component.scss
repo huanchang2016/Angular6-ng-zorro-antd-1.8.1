@@ -1,0 +1,23 @@
+.nav {
+    // margin: 20px 100px;
+    // width: 800px;
+    height: 30px;
+    a {
+        float: left;
+        // margin-right: 30px;
+        line-height: 30px;
+        padding: 0 20px;
+        border: 1px solid #3a6377;
+        font-size: 16px;
+        color: #3a6377;
+    }
+    .router-link-active {
+        background-color: #3a6377;
+        color: #fff;
+    }
+}
+.content {
+    clear:both;
+    width: 100%;
+    height: calc(100% - 100px);
+}

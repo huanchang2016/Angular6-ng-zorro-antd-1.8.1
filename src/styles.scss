@@ -1,1 +1,97 @@
 /* You can add global styles to this file, and also import other style files */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, a, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    vertical-align: baseline;
+    background: transparent;
+    outline-style: none;
+    /*FF*/
+    font-family: '微软雅黑' !important;
+}
+
+body {
+    // PC端默认字体为14px;
+    font-size: 14px;
+}
+ul, ol, dl, li, dd, dt, ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+/*css为clearfix，清除浮动*/
+
+.clearfix::before,
+.clearfix::after {
+    content: '.';
+    display: block;
+    height: 0;
+    width: 100%;
+    visibility: hidden;
+    overflow: hidden;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+textarea {
+    resize: none;
+}
+
+.row {
+    width: 1200px;
+    margin: 0 auto !important;
+}
+/** 文本溢出处理 **/
+.ellipsis {
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+/* 多行文本溢出 */
+.multiline-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    /* 内容行数，在对应使用的地方单独设置 ，默认 2 行*/
+}
+// 设置一些需要覆盖的样式，关于整个项目的主题色，均在这个地方申明。
+
+$colors: ( primary: #3a6377, success: #32db64, danger: #f53d3d, warning: #ff9702, light: #fff, dark: #101010);
+
+@each $class,
+$color in $colors {
+    .#{$class} {
+        color: $color !important;
+    }
+    .bg-#{$class} {
+        background-color: $color !important;
+    }
+    .border-#{$class} {
+        border-color: $color !important;
+    }
+}

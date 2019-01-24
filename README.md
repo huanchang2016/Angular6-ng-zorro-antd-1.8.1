@@ -1,27 +1,14 @@
-# RouteAnimation
+# web-source
+    网页前端项目前期准备：基础结构的创建、模块的分类、以及用户登录注册等；
+    目前版本：Angular@6.1.10  Angular-cli@6.1.5    Node@8.10.0  Npm@5.6.0
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.5.
+### 基础
+    1. 前端项目每次构建时，均会执行命令新建项目、下载安装依赖、UI库等；
+    2. 为了提升效率，大致整理了前端前期准备会用到的基础结构；
+    3. 当前_base 项目中包含的功能有：
+        1. 基础路由搭建完成：web首页、登录注册、找回密码、关于我们等；
+        2. 在httpRequestService中模拟权限配置数据，对路由进行权限配置;
+        3. 在账号管理和关于我们路由下进行了权限判断；
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### 下一步
+    1. 完善用户登录部分的基础表单内容（目前未完成）；

@@ -1,0 +1,25 @@
+.top {
+    height: 48px;
+    line-height: 48px;
+    .logo-box {
+        max-width: 200px;
+        height: 40px;
+        margin-top: 4px;
+        overflow: hidden;
+        img {
+            width: 100%;
+        }
+    }
+    .user-info {
+        padding-right: 20px;
+        a {
+            color: #333;
+            &:hover {
+                color: #1890ff;
+            }
+        }
+        .account-active {
+            color: #1890ff;
+        }
+    }
+}

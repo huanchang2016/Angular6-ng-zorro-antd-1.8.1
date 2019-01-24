@@ -1,0 +1,11 @@
+<p>
+  register works!
+</p>
+<p>
+  <a [routerLink]="['/account/register/user']">个人注册</a>
+  <a [routerLink]="['/account/register/company']">企业注册</a>
+</p>
+<router-outlet></router-outlet>
+<p>
+  已有账号？立即<a [routerLink]="['/account/login']" routerLinkActive="router-link-active">登录</a>
+</p>
