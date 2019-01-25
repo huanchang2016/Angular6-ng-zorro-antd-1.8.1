@@ -1,7 +1,7 @@
 .login {
     width: 100%;
-    height: calc(100vh - 180px);
-    min-height: 600px;
+    height: 100%;
+    padding: 100px;
     background: url('/assets/imgs/login_page_bg.jpg') no-repeat center center;
     background-size: cover;
     &>div {
@@ -35,6 +35,14 @@
     .ant-card {
         border: 0;
         background: rgba(0, 0, 0, 0.3);
+        .ant-card-head{
+            color: #fff;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.3);
+            .ant-card-head-title {
+                padding: 12px 0;
+            }
+        }
         .ant-card-body {
             padding: 20px 10px;
         }

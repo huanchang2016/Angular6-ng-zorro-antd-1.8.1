@@ -34,7 +34,7 @@ export class HttpRequestService {
     this.route.navigateByUrl(url);
   }
 
-  showMessage (type:string, msg: string):void {
-    this.message.create(type, msg);
+  showMessage (type:string, msg: string, t:number = 2000):void {
+    this.message.create(type, msg, { nzDuration: t });
   }
 }

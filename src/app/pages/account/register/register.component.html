@@ -1,11 +1,13 @@
-<p>
-  register works!
-</p>
-<p>
-  <a [routerLink]="['/account/register/user']">个人注册</a>
-  <a [routerLink]="['/account/register/company']">企业注册</a>
-</p>
-<router-outlet></router-outlet>
-<p>
-  已有账号？立即<a [routerLink]="['/account/login']" routerLinkActive="router-link-active">登录</a>
-</p>
+<div class="register-box">
+  <div class="register-content">
+    <nz-card style="width: 100%;">
+      <nz-card-tab>
+        <nz-tabset nzSize="large" (nzSelectedIndexChange)="changeNavTo($event)">
+          <nz-tab nzTitle="个人注册"></nz-tab>
+          <nz-tab nzTitle="企业注册"></nz-tab>
+        </nz-tabset>
+      </nz-card-tab>
+      <router-outlet></router-outlet>
+    </nz-card>
+  </div>
+</div>
