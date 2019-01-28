@@ -8,6 +8,8 @@ import { HttpRequestService } from 'src/app/core/service/http-request.service';
   styleUrls: ['./user-register.component.scss']
 })
 export class UserRegisterComponent implements OnInit {
+  public isLoading:boolean = false;
+  public isCaptcha:boolean = false;
   validateForm: FormGroup;
 
   constructor(
@@ -24,13 +26,14 @@ export class UserRegisterComponent implements OnInit {
     }
 
     console.log(value);
-    console.log(valid);
     if (valid) {
       if (!value.agree) {
         this.httpRequest.showMessage('error', '您需要阅读并同意《用户协议》！');
       } else {
+        this.isLoading = true;
         this.httpRequest.showMessage('loading', '注册资料提交中, 请稍后......');
         setTimeout(() => {
+          this.isLoading = false;
           this.httpRequest.showMessage('success', '注册成功！ 立即登录');
           this.httpRequest.navTo('/account/login');
         }, 3000);
@@ -53,6 +56,8 @@ export class UserRegisterComponent implements OnInit {
 
   getCaptcha(e: MouseEvent): void {
     e.preventDefault();
+    this.isCaptcha = true;
+    setTimeout(()=> this.isCaptcha = false, 3000);
   }
 
   ngOnInit(): void {
@@ -60,11 +65,9 @@ export class UserRegisterComponent implements OnInit {
       username: [null, [Validators.required]],
       password: [null, [Validators.required]],
       checkPassword: [null, [Validators.required, this.confirmationValidator]],
-      email: [null, [Validators.email]],
-      phoneNumberPrefix: ['+86', [Validators.required]],
       phoneNumber: [null, [Validators.required]],
-      website: [null],
       captcha: [null, [Validators.required]],
+      email: [null, [Validators.required, Validators.email]],
       agree: [false, [Validators.required]]
     });
   }

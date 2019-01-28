@@ -25,8 +25,7 @@
                 <span class="light">记住账号</span>
               </label>
               <a class="fr light" [routerLink]="['/account/forgotPassword']">忘记密码?</a>
-              <button nz-button class="login-form-button" [nzType]="'primary'" [disabled]="!validateForm.valid">登 录</button>
-              
+              <button nz-button class="login-form-button" [nzType]="'primary'" [disabled]="!validateForm.valid" [nzLoading]="isLoading">登 录</button>
               <a class="light" [routerLink]="['/account/register']">注册账号</a>
             </nz-form-control>
           </nz-form-item>

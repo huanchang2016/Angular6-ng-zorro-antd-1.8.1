@@ -8,6 +8,7 @@ import { HttpRequestService } from 'src/app/core/service/http-request.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  public isLoading:boolean = false; // loading动画效果
   validateForm: FormGroup;
 
   constructor(
@@ -31,9 +32,11 @@ export class LoginComponent implements OnInit {
     }
     if(valid) {
       console.log(value);
+      this.isLoading = true;
       this.httpRequest.showMessage('loading', '登录中，请稍后...');
       // 模拟登录接口
       setTimeout(()=> {
+        this.isLoading = false;
         this.httpRequest.showMessage('success', '登录成功');
         this.httpRequest.navTo('/');
       }, 3000);

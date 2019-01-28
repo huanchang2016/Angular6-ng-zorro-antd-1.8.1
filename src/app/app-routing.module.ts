@@ -9,7 +9,8 @@ const routes: Routes = [
   { path: 'account', loadChildren: './pages/account/account.module#AccountModule',
     canActivate: [AccountPagePermissionGuard]
   },
-  { path: '**', redirectTo: '', pathMatch: 'full' }
+  { path: 'error', loadChildren: './pages/error-page/error-page.module#ErrorPageModule' },
+  { path: '**', redirectTo: 'error', pathMatch: 'full' }
 ];
 
 @NgModule({

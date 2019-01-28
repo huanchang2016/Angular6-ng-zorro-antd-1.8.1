@@ -8,6 +8,8 @@ import { HttpRequestService } from 'src/app/core/service/http-request.service';
   styleUrls: ['./forgot-password.component.scss']
 })
 export class ForgotPasswordComponent implements OnInit {
+  public isLoading:boolean = false;
+  public isCaptcha:boolean = false;
   validateForm: FormGroup;
 
   constructor(
@@ -24,17 +26,14 @@ export class ForgotPasswordComponent implements OnInit {
     }
 
     console.log(value);
-    console.log(valid);
     if (valid) {
-      if (!value.agree) {
-        this.httpRequest.showMessage('error', '您需要阅读并同意《用户协议》！');
-      } else {
+        this.isLoading = true;
         this.httpRequest.showMessage('loading', '注册资料提交中, 请稍后......');
         setTimeout(() => {
+          this.isLoading = false;
           this.httpRequest.showMessage('success', '注册成功！ 立即登录');
           this.httpRequest.navTo('/account/login');
         }, 3000);
-      }
     }
   }
 
@@ -53,15 +52,17 @@ export class ForgotPasswordComponent implements OnInit {
 
   getCaptcha(e: MouseEvent): void {
     e.preventDefault();
+    this.isCaptcha = true;
+    setTimeout(()=> this.isCaptcha = false, 3000);
   }
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
-      username: [null, [Validators.required, Validators.pattern('[a-zA-Z]')]],
+      username: [null, [Validators.required, Validators.pattern('[a-zA-Z]{1,}')]],
       password: [null, [Validators.required]],
       checkPassword: [null, [Validators.required, this.confirmationValidator]],
-      phoneNumberPrefix: ['+86', [Validators.required, Validators.pattern('[0-9]')]],
-      phoneNumber: [null, [Validators.required ]],
+      phoneNumberPrefix: ['+86'],
+      phoneNumber: [null, [Validators.required, Validators.pattern('[0-9]{6,12}')]],
       captcha: [null, [Validators.required ]]
     });
   }
