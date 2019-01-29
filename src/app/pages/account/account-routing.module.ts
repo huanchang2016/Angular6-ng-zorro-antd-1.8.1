@@ -9,7 +9,7 @@ const routes: Routes = [
       { path: 'login', loadChildren: './login/login.module#LoginModule' },
       { path: 'register', loadChildren: './register/register.module#RegisterModule' },
       { path: 'forgotPassword', loadChildren: './forgot-password/forgot-password.module#ForgotPasswordModule' },
-      { path: '**', redirectTo: 'login', pathMatch: 'full' }
+      { path: '**', redirectTo: '/error', pathMatch: 'full' }
     ]
   }
 ];

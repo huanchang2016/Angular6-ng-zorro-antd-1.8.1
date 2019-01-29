@@ -10,10 +10,11 @@ const routes: Routes = [
       { path: 'about', loadChildren: './about/about.module#AboutModule',
         canActivate: [AboutPagePermissionGuard]
       },
-      { path: '**', redirectTo: 'about', pathMatch: 'full' }
+      { path: 'list', loadChildren: './list/list.module#ListModule' },
+      { path: '**', redirectTo: '/error', pathMatch: 'full' }
     ]
   },
-  { path: '**', redirectTo: '', pathMatch: 'full' }
+  { path: '**', redirectTo: '/error', pathMatch: 'full' }
 ];
 
 @NgModule({

@@ -8,6 +8,9 @@
         <li *ngIf="permission.accountEditPage" nz-menu-item (click)="navByUrl('/account')">
           <i nz-icon type="login" theme="outline"></i>账号管理
         </li>
+        <li nz-menu-item (click)="navByUrl('/web/list')">
+          <i nz-icon type="team" theme="outline"></i>列表管理
+        </li>
         <li *ngIf="permission.aboutPage" nz-menu-item (click)="navByUrl('/web/about')">
           <i nz-icon type="team" theme="outline"></i>关于我们
         </li>
