@@ -10,8 +10,11 @@ export class ErrorPageComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  back() {
+    window.history.back();
+  } 
 
+  ngOnInit() {
     let canvas = document.createElement('canvas');
     let height = canvas.height = window.innerHeight;
     let width = canvas.width = window.innerWidth;
@@ -32,7 +35,7 @@ export class ErrorPageComponent implements OnInit {
       word_arr.push({
         x: random(0, width),
         y: random(0, height),
-        text: 'error page',
+        text: 'Error Page',
         size: random(txt_min_size, txt_max_size)
       });
 
@@ -40,7 +43,7 @@ export class ErrorPageComponent implements OnInit {
       word_arr.push({
         x: random(0, width),
         y: random(0, height),
-        text: 'not found',
+        text: 'Not Found',
         size: random(txt_min_size, txt_max_size)
       });
 

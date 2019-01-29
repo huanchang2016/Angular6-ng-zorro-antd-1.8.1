@@ -8,11 +8,13 @@ import { WebTopComponent } from './component/web-top/web-top.component';
 import { WebFooterComponent } from './component/web-footer/web-footer.component';
 import { WebNavbarComponent } from './component/web-navbar/web-navbar.component';
 import { PermissionPipe } from './pipe/permission.pipe';
+import { WapTopComponent } from './component/wap-top/wap-top.component';
 
 const SaredComponents = [
     WebTopComponent,
     WebFooterComponent,
-    WebNavbarComponent
+    WebNavbarComponent,
+    WapTopComponent
 ];
 
 @NgModule({

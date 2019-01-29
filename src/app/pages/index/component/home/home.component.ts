@@ -6,10 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+  // isVisible = true;
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
+  // handleOk(): void {
+  //   console.log('Button ok clicked!');
+  //   this.isVisible = false;
+  // }
+
+  // handleCancel(): void {
+  //   console.log('Button cancel clicked!');
+  //   this.isVisible = false;
+  // }
 }

@@ -1,3 +1,24 @@
+// modal 对话框
+// ::ng-deep .ant-modal {
+//     width: 600px !important;
+//     .ant-modal-content {
+//         background: rgba(255, 255, 255, 0);
+//         .ant-modal-body {
+//             padding: 0;
+//             .img-box {
+//                 width: 600px;
+//                 overflow: hidden;
+//                 img {
+//                     width: 100%;
+//                 }
+//             }
+//         }
+//         .ant-modal-footer {
+//             display: none !important;
+//         }
+//     }
+// }
+
 .mao_box {
     position: relative;
     top: 50px;
