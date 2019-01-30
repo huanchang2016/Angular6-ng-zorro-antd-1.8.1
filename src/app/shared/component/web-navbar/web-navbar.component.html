@@ -2,10 +2,10 @@
   <nav class="navbar">
     <div class="row">
       <ul nz-menu [nzMode]="'horizontal'">
-        <li nz-menu-item (click)="navByUrl('/')">
-          <i nz-icon type="home" theme="outline"></i>首页
+        <li *ngFor="let config of routeArr" nz-menu-item (click)="navByUrl(config.url)">
+          <i nz-icon type="{{config.icon}}" theme="outline"></i>{{config.title}}
         </li>
-        <li *ngIf="permission.accountEditPage" nz-menu-item (click)="navByUrl('/account')">
+        <!-- <li *ngIf="permission.accountEditPage" nz-menu-item (click)="navByUrl('/account')">
           <i nz-icon type="login" theme="outline"></i>账号管理
         </li>
         <li nz-menu-item (click)="navByUrl('/web/list')">
@@ -13,7 +13,7 @@
         </li>
         <li *ngIf="permission.aboutPage" nz-menu-item (click)="navByUrl('/web/about')">
           <i nz-icon type="team" theme="outline"></i>关于我们
-        </li>
+        </li> -->
         <!-- <li nz-submenu>
         <span title><i nz-icon type="setting"></i> Navigation Three - Submenu</span>
         <ul>

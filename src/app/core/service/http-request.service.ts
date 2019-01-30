@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Permission } from 'src/app/data/config';
 import { Router } from '@angular/router';
@@ -8,7 +8,36 @@ import { NzMessageService } from 'ng-zorro-antd';
   providedIn: 'root'
 })
 export class HttpRequestService {
-  public permission:Permission = this.control;
+  public permission:Permission = this.control; // 权限
+  public isWap:boolean = false; // 设备判断
+  public isLogin:boolean = false;
+  public loginStatusEmitter: EventEmitter<any> = new EventEmitter();
+  public routerArray:Array<any> = [
+    {
+      title: '首页',
+      url: '/',
+      icon: 'home'
+    },
+    {
+      title: '账号管理',
+      url: '/account',
+      icon: 'login'
+    },
+    {
+      title: '列表管理',
+      url: '/web/list',
+      icon: 'ordered-list'
+    },
+    {
+      title: '关于我们',
+      url: '/web/about',
+      icon: 'team'
+    }
+  ];
+  
+
+
+
 
   constructor(
     private http: HttpClient,
@@ -19,6 +48,18 @@ export class HttpRequestService {
     console.log(`************************权限配置参数***************************`);
     console.log(this.permission);
     console.log(`************************权限配置参数***************************`);
+    this.getUserInfo();// 获取用户登录状态
+    // 当用户的登录状态发生改变时，需要改变中间件服务中的登录状态： this.isLogin = !this.isLogin;
+    this.loginStatusEmitter.subscribe(()=>{
+      this.isLogin = !this.isLogin;
+      console.log(this.isLogin);
+    })
+  }
+  // 发起请求判断用户是否处于登录状态
+  getUserInfo() {
+    let loginNum:number = Math.random();
+    console.log(loginNum);
+    this.isLogin = loginNum > 0.5 ? true : false;
   }
   
   get control () : Permission{

@@ -1,5 +1,6 @@
 <div id="error"></div>
 <div class="oper clear">
     <a href="javascript:;" (click)="back()" class="fl"><i nz-icon type="double-left" theme="outline"></i> 返回上一页</a>
-    <a [routerLink]="['/']" class="fr">前往首页 <i nz-icon type="double-right" theme="outline"></i></a>
+    <a *ngIf="!isWap" [routerLink]="['/']" class="fr">前往首页 <i nz-icon type="double-right" theme="outline"></i></a>
+    <a *ngIf="isWap" [routerLink]="['/wap']" class="fr">前往首页 <i nz-icon type="double-right" theme="outline"></i></a>
 </div>

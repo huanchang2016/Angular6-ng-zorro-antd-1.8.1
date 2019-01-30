@@ -10,7 +10,7 @@ const routes: Routes = [
     canActivate: [AccountPagePermissionGuard]
   },
   /********** wap pages ***********/
-  { path: 'wap', loadChildren: './wap/wap-index/wap-index.module#WapIndexModule' },
+  { path: 'wap', loadChildren: './wap/wap.module#WapModule' },
   /********** wap pages ***********/
   { path: 'error', loadChildren: './pages/error-page/error-page.module#ErrorPageModule' },
   { path: '**', redirectTo: 'error', pathMatch: 'full' }

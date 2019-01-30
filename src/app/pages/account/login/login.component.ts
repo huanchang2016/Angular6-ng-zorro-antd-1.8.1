@@ -36,6 +36,10 @@ export class LoginComponent implements OnInit {
       this.httpRequest.showMessage('loading', '登录中，请稍后...');
       // 模拟登录接口
       setTimeout(()=> {
+        // 登录成功后，需要修改全局的用户登录状态
+        this.httpRequest.isLogin = true;
+        // 登录成功后，需要修改全局的用户登录状态
+
         this.isLoading = false;
         this.httpRequest.showMessage('success', '登录成功');
         this.httpRequest.navTo('/');

@@ -1,2 +1,8 @@
 <app-wap-top></app-wap-top>
-<p>app wap index works!</p>
+<div class="banner">
+    <nz-carousel [nzEffect]="'fade'" nzAutoPlay>
+        <div nz-carousel-content *ngFor="let src of array">
+            <img [src]="src" alt="">
+        </div>
+    </nz-carousel>
+</div>

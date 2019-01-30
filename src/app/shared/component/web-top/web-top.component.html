@@ -6,8 +6,13 @@
       </div>
       <div nz-col nzSpan="16">
         <p class="user-info text-right">
-          <a href="javascript:;">xxx用户，您好！欢迎访问xxx网站！</a>
-          <a [routerLink]="['/account/login']" routerLinkActive="account-active">登录</a> / <a [routerLink]="['/account/register']" routerLinkActive="account-active">注册</a>
+          <span *ngIf="isLogin">
+            <a href="javascript:;">xxx用户，您好！欢迎访问xxx网站！</a> 
+            <a (click)="loginOut()" class="loginout" href="javascript:;">[退出账号]</a>
+          </span>
+          <span *ngIf="!isLogin">
+              <a [routerLink]="['/account/login']" routerLinkActive="account-active">登录</a> / <a [routerLink]="['/account/register']" routerLinkActive="account-active">注册</a>
+          </span>
         </p>
       </div>
     </div>

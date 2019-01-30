@@ -1,0 +1,20 @@
+.banner {
+    height: 180px;
+    overflow: hidden;
+}
+[nz-carousel-content] {
+    text-align: center;
+    height: 180px;
+    color: #fff;
+    overflow: hidden;
+    
+}
+::ng-deep nz-carousel {
+    .slick-slide {
+        width: 100%;
+        overflow: hidden;
+        img {
+            width: 100%;
+        }
+    }
+}

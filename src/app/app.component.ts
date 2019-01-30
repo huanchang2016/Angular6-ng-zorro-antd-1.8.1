@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpRequestService } from './core/service/http-request.service';
+import { Router, NavigationStart, NavigationEnd, NavigationCancel, NavigationError, RoutesRecognized } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +9,25 @@ import { HttpRequestService } from './core/service/http-request.service';
 })
 export class AppComponent implements OnInit {
   port = window.location.port;
-  public href:string = (window.location.href).split(this.port + '/')[1];
-  constructor(private httpRequest: HttpRequestService) {}
+  public href: string = (window.location.href).split(this.port + '/')[1];
+  constructor(
+    private httpRequest: HttpRequestService,
+    private router:Router
+  ) {
+    // this.router.events.subscribe(event => {
+    //   if(event instanceof NavigationStart) {
+    //     console.log('navigation start:' + window.location.href);
+    //   } else if(event instanceof NavigationEnd) {
+    //     console.log('navigation End:' + window.location.href);
+    //   } else if(event instanceof NavigationCancel) {
+    //     console.log('navigation Cancel:' + window.location.href);
+    //   } else if(event instanceof NavigationError) {
+    //     console.log('navigation Error:' + window.location.href);
+    //   } else if(event instanceof RoutesRecognized) {
+    //     console.log('navigation Recognized:' + window.location.href);
+    //   }
+    // });
+  }
 
   ngOnInit() {
     this.browserRedirect();
@@ -17,7 +35,7 @@ export class AppComponent implements OnInit {
   // equilpment 
   browserRedirect() {
     let sUserAgent = navigator.userAgent.toLowerCase();
-    let bIsIpad = sUserAgent.indexOf("ipad") !== -1 ;
+    let bIsIpad = sUserAgent.indexOf("ipad") !== -1;
     let bIsIphoneOs = sUserAgent.indexOf("iphone os") !== -1;
     let bIsMidp = sUserAgent.indexOf("midp") !== -1;
     let bIsUc7 = sUserAgent.indexOf("rv:1.2.3.4") !== -1;
@@ -28,26 +46,37 @@ export class AppComponent implements OnInit {
 
     if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
       console.log('***********移动端设备访问***********');
-      //跳转移动端页面
-      if(this.href) {
-        this.httpRequest.navTo('/wap/' + this.href);
-      }else {
-        this.httpRequest.navTo('/wap');
-      }
-    }else {
+      this.httpRequest.isWap = true;
+      this.redirectUrl();
+    } else {
       let _width = window.innerWidth;
-      if(_width <= 575) {
+      if (_width <= 575) {
         console.log('***********移动端设备访问***********');
-        if(this.href) {
-          this.httpRequest.navTo('/wap/' + this.href);
-        }else {
-          this.httpRequest.navTo('/wap');
-        }
-      }else {
+        this.httpRequest.isWap = true;
+        this.redirectUrl();
+      } else {
         console.log('***********PC端设备访问***********');
+        this.httpRequest.isWap = false;
         let _h = this.href.replace('wap', '');
         this.httpRequest.navTo(_h);
       }
+    }
+  }
+
+  redirectUrl() {
+    //跳转移动端页面 对路由地址进行判断
+    if (this.href) {
+      if (this.href.indexOf("wap") === -1) { // 判断是否已经处于 /wap 链接下
+        if (this.href.indexOf("web") !== -1) {
+          let _href = this.href.replace('web', 'wap');
+          this.httpRequest.navTo(_href);
+        } else {
+          let _href = '/wap' + this.href;
+          this.httpRequest.navTo(_href);
+        }
+      }
+    } else {
+      this.httpRequest.navTo('/wap');
     }
   }
 }

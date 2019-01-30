@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { HttpRequestService } from 'src/app/core/service/http-request.service';
 
 
 @Component({
@@ -6,13 +7,17 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './error-page.component.html',
   styleUrls: ['./error-page.component.scss']
 })
-export class ErrorPageComponent implements OnInit {
-
-  constructor() { }
+export class ErrorPageComponent implements OnInit, OnDestroy {
+  public isWap:boolean = this.httpRequest.isWap;
+  constructor(private httpRequest: HttpRequestService) { }
 
   back() {
     window.history.back();
-  } 
+  }
+
+  ngOnDestroy() {
+    document.body.removeChild(document.querySelector('canvas'));
+  }
 
   ngOnInit() {
     let canvas = document.createElement('canvas');

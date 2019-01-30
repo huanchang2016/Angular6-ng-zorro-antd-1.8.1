@@ -9,7 +9,11 @@ import { Permission } from 'src/app/data/config';
   styleUrls: ['./web-navbar.component.scss']
 })
 export class WebNavbarComponent implements OnInit {
+  // 权限参数
   public permission: Permission = this.httpRequest.permission;
+  // 路由导航配置
+  public routeArr:Array<any> = this.httpRequest.routerArray;
+
   constructor(
     private route: Router,
     private httpRequest: HttpRequestService
