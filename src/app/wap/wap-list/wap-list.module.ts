@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 import { WapListRoutingModule } from './wap-list-routing.module';
 import { WapListComponent } from './wap-list.component';
 
 @NgModule({
   imports: [
-    CommonModule,
+    SharedModule,
     WapListRoutingModule
   ],
   declarations: [WapListComponent]

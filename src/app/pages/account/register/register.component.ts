@@ -12,8 +12,7 @@ export class RegisterComponent implements OnInit {
     private httpRequest: HttpRequestService
   ) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   changeNavTo(index:number) :void {
     this.httpRequest.navTo(this.urlArray[index]);

@@ -1,14 +1,14 @@
 <div class="top">
   <div nz-row>
-    <div nz-col nzSpan="4" class="text-center light">
+    <div nz-col nzSpan="4" class="text-center">
       <i class="menu" (click)="changeDrawer()" nz-icon type="menu-fold" theme="outline"></i>
     </div>
     <div nz-col nzSpan="16" class="text-center">
-      <h1 class="logo-box"><a [routerLink]="['/wap']"><img src="/assets/imgs/wap/wap_top_logo.png" alt="logo"></a></h1>
+      <h1 class="logo-box"><a [routerLink]="['/wap']"><img src="/assets/imgs/logo.png" alt="logo"></a></h1>
     </div>
     <div nz-col nzSpan="4" class="text-center">
-      <a *ngIf="isLogin" [routerLink]="['/wap/account/login']" class="light login-btn">登录</a>
-      <a *ngIf="!isLogin" [routerLink]="['/']" class="light user-btn">
+      <a *ngIf="!isLogin" [routerLink]="['/wap/account/login']" class="login-btn">登录</a>
+      <a *ngIf="isLogin" [routerLink]="['/']" class="user-btn">
         <i nz-icon type="user" theme="outline"></i>
       </a>
 

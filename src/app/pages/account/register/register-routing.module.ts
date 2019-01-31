@@ -12,7 +12,7 @@ const routes: Routes = [
       { path: 'company', component: CompanyRegisterComponent },
       { path: '**', redirectTo: 'user', pathMatch: 'full' }
     ]
-  },
+  }
   
 ];
 
