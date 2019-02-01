@@ -9,12 +9,14 @@ import { WebFooterComponent } from './component/web-footer/web-footer.component'
 import { WebNavbarComponent } from './component/web-navbar/web-navbar.component';
 import { PermissionPipe } from './pipe/permission.pipe';
 import { WapTopComponent } from './component/wap-top/wap-top.component';
+import { SharedLoginComponent } from './component/shared-login/shared-login.component';
 
 const SaredComponents = [
     WebTopComponent,
     WebFooterComponent,
     WebNavbarComponent,
-    WapTopComponent
+    WapTopComponent,
+    SharedLoginComponent
 ];
 
 @NgModule({

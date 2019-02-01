@@ -1,0 +1,31 @@
+<form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm(validateForm, $event)">
+  <nz-form-item>
+    <nz-form-control>
+      <nz-input-group [nzPrefix]="prefixUser">
+        <input type="text" nz-input formControlName="userName" placeholder="输入用户名">
+      </nz-input-group>
+      <nz-form-explain *ngIf="validateForm.get('userName').dirty && validateForm.get('userName').errors">请填写您的用户名!</nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control>
+      <nz-input-group [nzPrefix]="prefixLock">
+        <input type="password" nz-input formControlName="password" placeholder="输入密码">
+      </nz-input-group>
+      <nz-form-explain *ngIf="validateForm.get('password').dirty && validateForm.get('password').errors">请输入您的用户密码!</nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control>
+      <label nz-checkbox formControlName="remember">
+        <span [class.light]="!isWap">记住账号</span>
+      </label>
+      <a class="fr" [class.light]="!isWap" [routerLink]="[ isWap ? '/wap/account/forgotPassword' : '/account/forgotPassword']">忘记密码?</a>
+      <button nz-button class="login-form-button" [nzType]="'primary'" [disabled]="!validateForm.valid" [nzLoading]="isLoading">登
+        录</button>
+      <a [class.light]="!isWap" [routerLink]="[ isWap ? '/wap/account/register' : '/account/register']">注册账号</a>
+    </nz-form-control>
+  </nz-form-item>
+</form>
+<ng-template #prefixUser><i nz-icon type="user"></i></ng-template>
+<ng-template #prefixLock><i nz-icon type="lock"></i></ng-template>

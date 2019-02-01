@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   // isVisible = true;
+  
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    
+  }
+
 
   // handleOk(): void {
   //   console.log('Button ok clicked!');

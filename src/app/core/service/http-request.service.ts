@@ -54,6 +54,7 @@ export class HttpRequestService {
       this.isLogin = !this.isLogin;
       console.log(this.isLogin);
     })
+    
   }
   // 发起请求判断用户是否处于登录状态
   getUserInfo() {

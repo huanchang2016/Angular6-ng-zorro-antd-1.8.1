@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 import { WapRegisterRoutingModule } from './wap-register-routing.module';
 import { WapRegisterComponent } from './wap-register.component';
@@ -8,7 +8,7 @@ import { WapCompanyRegisterComponent } from './wap-company-register/wap-company-
 
 @NgModule({
   imports: [
-    CommonModule,
+    SharedModule,
     WapRegisterRoutingModule
   ],
   declarations: [WapRegisterComponent, WapUserRegisterComponent, WapCompanyRegisterComponent]

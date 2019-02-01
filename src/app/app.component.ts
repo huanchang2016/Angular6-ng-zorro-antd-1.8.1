@@ -65,6 +65,10 @@ export class AppComponent implements OnInit {
 
   redirectUrl() {
     //跳转移动端页面 对路由地址进行判断
+    this.httpRequest.routerArray.map((item) => {
+      item.url =  this.httpRequest.isWap && item.url.indexOf('/wap') === -1 ? '/wap' + item.url : item.url;
+    })
+    console.log(this.httpRequest.routerArray);
     if (this.href) {
       if(this.href.indexOf('error') !== -1) {
         this.httpRequest.navTo('/wap');

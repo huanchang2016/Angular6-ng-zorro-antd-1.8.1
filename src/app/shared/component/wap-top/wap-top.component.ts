@@ -17,10 +17,6 @@ export class WapTopComponent implements OnInit {
   `;
   constructor(private httpRequest: HttpRequestService) {
     
-    this.httpRequest.routerArray.map((item) => {
-      item.url =  this.httpRequest.isWap && item.url.indexOf('/wap') === -1 ? '/wap' + item.url : item.url;
-    })
-    console.log(this.httpRequest.routerArray);
   }
 
   ngOnInit() {
@@ -28,12 +24,6 @@ export class WapTopComponent implements OnInit {
 
   changeDrawer = () =>  {
     this.menuVisible = !this.menuVisible;
-  }
-
-  navByUrl(url:string): void {
-    
-    this.menuVisible = false;
-    this.httpRequest.navTo(url);
   }
 
 }

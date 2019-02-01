@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 import { WapLoginRoutingModule } from './wap-login-routing.module';
 import { WapLoginComponent } from './wap-login.component';
 
 @NgModule({
   imports: [
-    CommonModule,
+    SharedModule,
     WapLoginRoutingModule
   ],
   declarations: [WapLoginComponent]

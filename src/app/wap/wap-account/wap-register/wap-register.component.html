@@ -1,3 +1,11 @@
-<p>
-  wap-register works!
-</p>
+<div class="register wap-content">
+  <nz-card style="width: 100%; border: 0;">
+    <nz-card-tab>
+      <nz-tabset nzSize="large" (nzSelectedIndexChange)="changeNavTo($event)">
+        <nz-tab nzTitle="个人注册"></nz-tab>
+        <nz-tab nzTitle="企业注册"></nz-tab>
+      </nz-tabset>
+    </nz-card-tab>
+    <router-outlet></router-outlet>
+  </nz-card>
+</div>
