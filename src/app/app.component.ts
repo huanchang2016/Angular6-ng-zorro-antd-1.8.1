@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpRequestService } from './core/service/http-request.service';
-import { Router, NavigationStart, NavigationEnd, NavigationCancel, NavigationError, RoutesRecognized } from '@angular/router';
+// import { Router, NavigationStart, NavigationEnd, NavigationCancel, NavigationError, RoutesRecognized } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   public href: string = (window.location.href).split(this.port + '/')[1];
   constructor(
     private httpRequest: HttpRequestService,
-    private router:Router
+    // private router:Router
   ) {
     // this.router.events.subscribe(event => {
     //   if(event instanceof NavigationStart) {
@@ -66,14 +66,11 @@ export class AppComponent implements OnInit {
   redirectUrl() {
     //跳转移动端页面 对路由地址进行判断
     if (this.href) {
-      if (this.href.indexOf("wap") === -1) { // 判断是否已经处于 /wap 链接下
-        if (this.href.indexOf("web") !== -1) {
-          let _href = this.href.replace('web', 'wap');
-          this.httpRequest.navTo(_href);
-        } else {
-          let _href = '/wap' + this.href;
-          this.httpRequest.navTo(_href);
-        }
+      if(this.href.indexOf('error') !== -1) {
+        this.httpRequest.navTo('/wap');
+      }else if (this.href.indexOf("wap") === -1) { // 判断是否已经处于 /wap 链接下
+        let _href = '/wap/' + this.href;
+        this.httpRequest.navTo(_href);
       }
     } else {
       this.httpRequest.navTo('/wap');
