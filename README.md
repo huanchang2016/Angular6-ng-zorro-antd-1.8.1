@@ -6,6 +6,10 @@
         Node@8.10.0
         Npm@5.6.0
         Ng-zorro-antd@1.8.1
+### 项目运行
+    1. 按照上述的版本安装 node环境、angular/cli工具
+    2. npm install --save   或者用淘宝镜像安装依赖  cnpm ...
+    3. ng serve --open --port=8100 --host=0.0.0.0 (参数为选填)
 
 ### 基础
     1. 前端项目每次构建时，均会执行命令新建项目、下载安装依赖、UI库等；
