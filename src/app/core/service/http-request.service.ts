@@ -15,13 +15,8 @@ export class HttpRequestService {
   public routerArray:Array<any> = [
     {
       title: '首页',
-      url: '/',
+      url: '/index',
       icon: 'home'
-    },
-    {
-      title: '账号管理',
-      url: '/account',
-      icon: 'login'
     },
     {
       title: '列表管理',
@@ -32,6 +27,11 @@ export class HttpRequestService {
       title: '关于我们',
       url: '/web/about',
       icon: 'team'
+    },
+    {
+      title: '账号管理',
+      url: '/account',
+      icon: 'login'
     }
   ];
   

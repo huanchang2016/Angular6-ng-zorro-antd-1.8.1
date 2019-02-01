@@ -81,7 +81,7 @@ textarea {
 }
 // 设置一些需要覆盖的样式，关于整个项目的主题色，均在这个地方申明。
 
-$colors: ( primary: #3a6377, success: #32db64, danger: #f53d3d, warning: #ff9702, light: #fff, dark: #101010);
+$colors: (default: #1890ff, primary: #3a6377, success: #32db64, danger: #f53d3d, warning: #ff9702, light: #fff, dark: #101010, 'light-gray': #e8e8e8);
 
 @each $class,
 $color in $colors {

@@ -16,15 +16,9 @@ export class WapTopComponent implements OnInit {
     </div>
   `;
   constructor(private httpRequest: HttpRequestService) {
+    
     this.httpRequest.routerArray.map((item) => {
-      // item.url = item.url.indexOf('wap') === -1 ? '/wap' + item.url : 
-      if(item.url.indexOf("wap") === -1) {
-        if(item.url.indexOf("web") !== -1) {
-          item.url = item.url.replace('web', 'wap');
-        }else{
-          item.url = '/wap' + item.url;
-        }
-      }
+      item.url =  this.httpRequest.isWap && item.url.indexOf('/wap') === -1 ? '/wap' + item.url : item.url;
     })
     console.log(this.httpRequest.routerArray);
   }
@@ -34,6 +28,12 @@ export class WapTopComponent implements OnInit {
 
   changeDrawer = () =>  {
     this.menuVisible = !this.menuVisible;
+  }
+
+  navByUrl(url:string): void {
+    
+    this.menuVisible = false;
+    this.httpRequest.navTo(url);
   }
 
 }
