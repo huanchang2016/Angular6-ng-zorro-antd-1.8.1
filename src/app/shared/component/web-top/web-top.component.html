@@ -6,13 +6,24 @@
       </div>
       <div nz-col nzSpan="16">
         <p class="user-info text-right">
-          <span class="current-time default">{{ currentTime }}</span>
+
+          <nz-dropdown [nzPlacement]="'bottomCenter'">
+            <span class="current-time default" nz-dropdown><i nz-icon type="clock-circle" theme="outline"></i> {{
+              currentTime }}</span>
+            <div class="date-list">
+              <h3 class="text-center">乙亥木猪年</h3>
+              <h3>出处和故事</h3>
+              <p>猪又名“乌金”、“黑面郎”及“黑爷”。唐·笔记小说《朝野佥载》说，唐代洪州人养猪致富，称猪为“乌金”。唐代《云仙杂记》引《承平旧纂》：“黑面郎，谓猪也。”</p>
+
+            </div>
+          </nz-dropdown>
           <span *ngIf="isLogin">
-            <a href="javascript:;">xxx用户，您好！欢迎访问xxx网站！</a> 
+            <a href="javascript:;">xxx用户，您好！欢迎访问xxx网站！</a>
             <a (click)="loginOut()" class="loginout" href="javascript:;">[退出账号]</a>
           </span>
           <span *ngIf="!isLogin">
-              <a [routerLink]="['/account/login']" routerLinkActive="account-active">登录</a> / <a [routerLink]="['/account/register']" routerLinkActive="account-active">注册</a>
+            <a [routerLink]="['/account/login']" routerLinkActive="account-active">登录</a> / <a [routerLink]="['/account/register']"
+              routerLinkActive="account-active">注册</a>
           </span>
         </p>
       </div>

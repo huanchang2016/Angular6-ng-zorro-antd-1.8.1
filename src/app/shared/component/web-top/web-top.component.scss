@@ -14,6 +14,9 @@
         padding-right: 20px;
         .current-time {
             padding: 0 10px;
+            i {
+                font-size: 18px;
+            }
         }
         a {
             color: #333;
@@ -27,5 +30,21 @@
         .account-active {
             color: #1890ff;
         }
+    }
+}
+.date-list {
+    max-width: 300px;
+    overflow: hidden;
+    white-space: pre-wrap;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 8px;
+    border: 1px solid #e8e8e8;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    p {
+        text-indent: 2em;
     }
 }

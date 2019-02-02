@@ -11,7 +11,8 @@ export class WebTopComponent implements OnInit, OnDestroy {
   public isLogin:boolean = this.httpRequest.isLogin;
 
   public currentTime:string = format(new Date(), 'YYYY-MM-DD HH:mm:ss');
-  public timer:any = null;
+  public timer:any = null; // 时间渲染及时更新
+
   constructor(
     private httpRequest: HttpRequestService
   ) {
