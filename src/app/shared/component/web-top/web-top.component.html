@@ -6,6 +6,7 @@
       </div>
       <div nz-col nzSpan="16">
         <p class="user-info text-right">
+          <span class="current-time default">{{ currentTime }}</span>
           <span *ngIf="isLogin">
             <a href="javascript:;">xxx用户，您好！欢迎访问xxx网站！</a> 
             <a (click)="loginOut()" class="loginout" href="javascript:;">[退出账号]</a>

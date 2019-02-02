@@ -12,6 +12,9 @@
     }
     .user-info {
         padding-right: 20px;
+        .current-time {
+            padding: 0 10px;
+        }
         a {
             color: #333;
             &:hover {

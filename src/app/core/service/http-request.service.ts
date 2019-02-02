@@ -10,7 +10,8 @@ import { NzMessageService } from 'ng-zorro-antd';
 export class HttpRequestService {
   public permission:Permission = this.control; // 权限
   public isWap:boolean = false; // 设备判断
-  public isLogin:boolean = false;
+  public isLogin:boolean = false; // 用户登录状态
+  public isShowModalPcIndex:boolean = Math.random() > 0.5 ? true : false; // 全局配置首页是否渲染弹出祝福(广告画面)
   public loginStatusEmitter: EventEmitter<any> = new EventEmitter();
   public routerArray:Array<any> = [
     {
@@ -71,6 +72,18 @@ export class HttpRequestService {
       accountEditPage: true
     };
   }
+
+  // 获取日期详情接口测试
+  // getCurrentDateInfo(d:string) {
+  //   console.log(d);
+  //   return this.post('', {d: d})
+  // }
+  // 获取日期详情接口测试
+
+  post(url: string, opt?:any) {
+    return this.http.post(url, opt);
+  }
+  
 
   navTo(url: string) {
     this.route.navigateByUrl(url);
